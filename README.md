@@ -70,6 +70,9 @@ docker start datascience-notebook
 ```
 
 ## References
+Jupyter Notebook with Docker on Windows 7  
+https://github.com/kskalvar/jupyter-notebook-with-docker-win7  
+
 Docker Toolbox  
 https://github.com/docker/toolbox  
 
