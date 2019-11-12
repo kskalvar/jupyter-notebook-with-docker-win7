@@ -26,13 +26,15 @@ Steps:
 
 
 ## Create a Local Docker Machine
-Create a local docker machine, the name can be anything you want, for this example we've used "jupyter-notebooks"
+Create a local docker machine, the name can be anything you want, for this example we've used "jupyter-notebooks".  
+Be sure docker is in your environment path variable.
 ```
 docker-machine create -d virtualbox --virtualbox-memory=4096 jupyter-notebooks
 ```
 
 ## Configure Local Docker Machine NAT for Port 8888
-So you can access the Jupyter Notebooks running on the container locally. Remember Jupyter Notebooks run on port 8888
+So you can access the Jupyter Notebooks running on the container locally. Remember Jupyter Notebooks run on port 8888.    
+Be sure virtualbox is in your environment path variable.
 ```
 docker-machine stop jupyter-notebooks
 vboxmanage modifyvm jupyter-notebooks --natpf1 ,tcp,,8888,,8888
