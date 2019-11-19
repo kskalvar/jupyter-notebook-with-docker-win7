@@ -9,7 +9,7 @@ you may be required to add or remove existing software, creating dependency issu
 If you use a variety of tool chains this issue can become quite pronounced.  
 
 In this presentation will show how to run Jupyter Notebooks locally on Windows 7
-using docker pre-configured containers to avoid the dependencies issues, promote
+using docker pre-configured containers to avoid dependencies issues, promote
 sharing within a team, and speed development.
 ```
 Note: This how-to assumes you have already installed Docker Toolbox on Windows.
@@ -22,6 +22,7 @@ Steps:
 * [Pull Jupyter Notebook Image](#pull-jupyter-notebook-image)  
 * [Run the Jupyter Container](#run-the-jupyter-container) 
 * [Access Notebook](#access-notebook) 
+* [Access the Juypter Container](#access-the-juypter-container) 
 * [Restart Jupyter Container Once the Docker Machine has been Restarted](#restart-jupyter-container-once-the-docker-machine-has-been-restarted) 
 
 
@@ -52,7 +53,7 @@ docker pull jupyter/datascience-notebook
 To start the contianer, run the following command.  We've named the container "datascience-notebook", but it's up to you.
 ```
 docker run -p 8888:8888 -m 4g --name datascience-notebook \
--v /c/Users/kskalvar/git/Refactored_Py_DS_ML_Bootcamp-master:/home/jovyan/Refactored_Py_DS_ML_Bootcamp-master \
+-v /c/Users/<userid>/<project>/Refactored_Py_DS_ML_Bootcamp-master:/home/jovyan/Refactored_Py_DS_ML_Bootcamp-master \
 jupyter/datascience-notebook
 ```
 
@@ -62,6 +63,14 @@ Copy and paste URL displayed on the command line output in a browser
 Example:
    http://127.0.0.1:8888/?token=2ca3e6e727c881220154faa141b82054f6549be73f4fcee3
 ```
+
+## Access the Juypter Container
+You may want to access the container at some point to add libraries or do manual work.  Windows 7 doesn't have a 
+console program so you'll have to install one.  Luckly someone has developed it already and you just need to install.  
+See references below.  I renamed the program "console" from "winpty".  Just a personal preference.  
+```
+console docker exec -it datascience-notebook bash
+``` 
 
 ## Restart Jupyter Container Once the Docker Machine has been Restarted
 If you shutdown the machine, you can restart the container very easily without all the parameters.
@@ -81,3 +90,6 @@ https://jupyter-docker-stacks.readthedocs.io/en/latest/using/selecting.html
 
 Cygwin  
 https://cygwin.com  
+
+winpty (windows console)  
+https://github.com/kskalvar/winpty  
